@@ -1,0 +1,17 @@
+Hello {{customerName}},
+
+Your booking is confirmed.
+
+Booking ID: {{bookingId}}
+Booking Date: {{bookingDate}}
+Flight: {{flightNumber}}
+Route: {{origin}} -> {{destination}}
+Departure: {{departureTime}}
+Arrival: {{arrivalTime}}
+
+Passengers:
+{{#each passengers}}
+- {{this.name}} (Age: {{this.age}}, Passport: {{this.passportNumber}})
+{{/each}}
+
+Thank you for booking with us.
