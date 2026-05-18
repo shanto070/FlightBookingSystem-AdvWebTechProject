@@ -40,7 +40,7 @@ export default function AdminBookingDetailsPage() {
 
   async function updateStatus() {
     try {
-      await api.patch(`/employee/bookings/${params.id}/status`, { status });
+      await api.patch(`/admin/bookings/${params.id}/status`, { status });
       await fetchData();
     } catch (e) {
       setError(parseApiError(e));

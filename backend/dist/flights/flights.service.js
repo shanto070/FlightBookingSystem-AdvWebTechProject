@@ -53,6 +53,15 @@ let FlightsService = class FlightsService {
         }
         return qb.orderBy('flight.departureTime', 'ASC').getMany();
     }
+    async getCrew(flightId) {
+        const flight = await this.flightRepo.findOne({
+            where: { id: flightId },
+            relations: ['assignedEmployees', 'assignedEmployees.user'],
+        });
+        if (!flight)
+            throw new common_1.NotFoundException('Flight not found');
+        return flight.assignedEmployees || [];
+    }
     findAll() {
         return this.flightRepo.find();
     }
@@ -61,12 +70,6 @@ let FlightsService = class FlightsService {
         if (!flight)
             throw new common_1.NotFoundException('Flight not found');
         return flight;
-    }
-    async getCrew(flightId) {
-        const flight = await this.flightRepo.findOne({ where: { id: flightId }, relations: ['assignedEmployees', 'assignedEmployees.user'] });
-        if (!flight)
-            throw new common_1.NotFoundException('Flight not found');
-        return flight.assignedEmployees ?? [];
     }
     async update(id, dto) {
         const flight = await this.findOne(id);

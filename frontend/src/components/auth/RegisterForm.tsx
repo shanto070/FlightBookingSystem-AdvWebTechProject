@@ -16,7 +16,7 @@ const schema = z.object({
   fullName: z.string().min(2),
   email: z.string().email(),
   password: z.string().min(6),
-  role: z.enum(['customer', 'employee', 'admin']),
+  role: z.enum(['customer', 'admin']),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -37,7 +37,6 @@ export function RegisterForm() {
       setError('');
       const currentUser = await registerUser(values as FormData & { role: UserRole });
       if (currentUser.role === 'admin') router.push('/admin/dashboard');
-      else if (currentUser.role === 'employee') router.push('/employee/dashboard');
       else router.push('/customer/dashboard');
     } catch (e) {
       setError(parseApiError(e));
@@ -55,7 +54,6 @@ export function RegisterForm() {
       <Input placeholder="Password" type="password" {...register('password')} />
       <select className="w-full rounded border border-slate-300 px-3 py-2" {...register('role')}>
         <option value="customer">customer</option>
-        <option value="employee">employee</option>
         <option value="admin">admin</option>
       </select>
       <Button type="submit" disabled={loading}>

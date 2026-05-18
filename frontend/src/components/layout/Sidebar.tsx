@@ -10,16 +10,16 @@ const roleMenus: Record<UserRole, { label: string; href: string }[]> = {
     { label: 'My Bookings', href: '/customer/bookings' },
     { label: 'Profile', href: '/customer/profile' },
   ],
-  employee: [
-    { label: 'Dashboard', href: '/employee/dashboard' },
-    { label: 'Bookings', href: '/employee/bookings' },
-  ],
   admin: [
     { label: 'Dashboard', href: '/admin/dashboard' },
     { label: 'Flights', href: '/admin/flights' },
     { label: 'Aircraft', href: '/admin/aircraft' },
-    { label: 'Employees', href: '/admin/employees' },
     { label: 'Bookings', href: '/admin/bookings' },
+    { label: 'Employees', href: '/admin/employees' },
+  ],
+  employee: [
+    { label: 'Dashboard', href: '/employee/dashboard' },
+    { label: 'Bookings', href: '/employee/bookings' },
   ],
 };
 

@@ -15,7 +15,7 @@ export default function AdminBookingsPage() {
   async function fetchData() {
     try {
       setError('');
-      const { data } = await api.get('/employee/bookings');
+      const { data } = await api.get('/admin/bookings');
       setBookings(normalizeArray<Booking>(data));
     } catch (e) {
       setError(parseApiError(e));
@@ -29,7 +29,7 @@ export default function AdminBookingsPage() {
 
   async function updateStatus(id: number, status: BookingStatus) {
     try {
-      await api.patch(`/employee/bookings/${id}/status`, { status });
+      await api.patch(`/admin/bookings/${id}/status`, { status });
       await fetchData();
     } catch (e) {
       setError(parseApiError(e));

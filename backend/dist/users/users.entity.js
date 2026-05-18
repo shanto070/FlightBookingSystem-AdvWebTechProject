@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
 const booking_entity_1 = require("../bookings/booking.entity");
-const employee_entity_1 = require("../employees/employee.entity");
 const user_role_enum_1 = require("../common/enums/user-role.enum");
 const typeorm_1 = require("typeorm");
 let User = class User {
@@ -45,10 +44,6 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => booking_entity_1.Booking, (booking) => booking.user),
     __metadata("design:type", Array)
 ], User.prototype, "bookings", void 0);
-__decorate([
-    (0, typeorm_1.OneToOne)(() => employee_entity_1.Employee, (employee) => employee.user),
-    __metadata("design:type", employee_entity_1.Employee)
-], User.prototype, "employeeProfile", void 0);
 exports.User = User = __decorate([
     (0, typeorm_1.Entity)('users')
 ], User);

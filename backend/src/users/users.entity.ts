@@ -1,12 +1,10 @@
 import { Booking } from '../bookings/booking.entity';
-import { Employee } from '../employees/employee.entity';
 import { UserRole } from '../common/enums/user-role.enum';
 import {
   Column,
   CreateDateColumn,
   Entity,
   OneToMany,
-  OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -32,7 +30,4 @@ export class User {
 
   @OneToMany(() => Booking, (booking) => booking.user)
   bookings!: Booking[];
-
-  @OneToOne(() => Employee, (employee) => employee.user)
-  employeeProfile!: Employee;
 }

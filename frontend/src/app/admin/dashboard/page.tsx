@@ -11,9 +11,6 @@ export default function AdminDashboardPage() {
         <Link className="rounded border bg-white p-4 hover:bg-slate-50" href="/admin/aircraft">
           Manage Aircraft
         </Link>
-        <Link className="rounded border bg-white p-4 hover:bg-slate-50" href="/admin/employees">
-          Manage Employees
-        </Link>
         <Link className="rounded border bg-white p-4 hover:bg-slate-50" href="/admin/bookings">
           View Bookings
         </Link>

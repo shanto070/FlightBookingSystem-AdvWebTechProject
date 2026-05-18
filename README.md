@@ -71,10 +71,6 @@ OR
 Email: admin@flight.com
 Password: Admin@123
 
-OR
-
-Email: employee@flight.com
-Password: Employee@123
 ```
 
 ## URLs

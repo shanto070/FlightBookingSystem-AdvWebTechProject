@@ -30,14 +30,14 @@ export class BookingsController {
     return this.bookingsService.getCustomerBookings(user.id);
   }
 
-  @Get('employee/bookings')
-  @Roles(UserRole.EMPLOYEE, UserRole.ADMIN)
+  @Get('admin/bookings')
+  @Roles(UserRole.ADMIN)
   getAllBookings() {
     return this.bookingsService.getAllBookings();
   }
 
-  @Patch('employee/bookings/:id/status')
-  @Roles(UserRole.EMPLOYEE, UserRole.ADMIN)
+  @Patch('admin/bookings/:id/status')
+  @Roles(UserRole.ADMIN)
   updateBookingStatus(
     @Param('id', ParseIntPipe) id: number,
     @Body() dto: UpdateBookingStatusDto,
@@ -51,7 +51,7 @@ export class BookingsController {
   }
 
   @Post('bookings/:id/payment')
-  @Roles(UserRole.CUSTOMER, UserRole.EMPLOYEE, UserRole.ADMIN)
+  @Roles(UserRole.CUSTOMER, UserRole.ADMIN)
   @ApiOperation({ summary: 'Add/update payment for a booking' })
   addPayment(@Req() req: any, @Param('id', ParseIntPipe) id: number, @Body() dto: CreatePaymentDto) {
     return this.bookingsService.addPayment(req.user as never, id, dto);

@@ -32,7 +32,6 @@ export function LoginForm() {
       const currentUser = await login(values);
       const role = currentUser.role;
       if (role === 'admin') router.push('/admin/dashboard');
-      else if (role === 'employee') router.push('/employee/dashboard');
       else router.push('/customer/dashboard');
     } catch (e) {
       setError(parseApiError(e));

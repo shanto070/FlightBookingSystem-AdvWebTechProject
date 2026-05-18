@@ -16,9 +16,9 @@ const users_module_1 = require("./users/users.module");
 const flights_module_1 = require("./flights/flights.module");
 const bookings_module_1 = require("./bookings/bookings.module");
 const aircraft_module_1 = require("./aircraft/aircraft.module");
-const employees_module_1 = require("./employees/employees.module");
 const profile_module_1 = require("./profile/profile.module");
 const notifications_module_1 = require("./notifications/notifications.module");
+const employees_module_1 = require("./employees/employees.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -35,9 +35,9 @@ exports.AppModule = AppModule = __decorate([
             flights_module_1.FlightsModule,
             bookings_module_1.BookingsModule,
             aircraft_module_1.AircraftModule,
-            employees_module_1.EmployeesModule,
             profile_module_1.ProfileModule,
             notifications_module_1.NotificationsModule,
+            employees_module_1.EmployeesModule,
         ],
     })
 ], AppModule);

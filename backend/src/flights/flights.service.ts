@@ -8,6 +8,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { AircraftService } from '../aircraft/aircraft.service';
 import { Booking } from '../bookings/booking.entity';
+import { Employee } from '../employees/employee.entity';
 import { MailService } from '../mail/mail.service';
 import { NotificationsGateway } from '../notifications/notifications.gateway';
 import { Flight } from './flight.entity';
@@ -50,6 +51,15 @@ export class FlightsService {
     return qb.orderBy('flight.departureTime', 'ASC').getMany();
   }
 
+  async getCrew(flightId: number): Promise<Employee[] | null> {
+    const flight = await this.flightRepo.findOne({
+      where: { id: flightId },
+      relations: ['assignedEmployees', 'assignedEmployees.user'],
+    });
+    if (!flight) throw new NotFoundException('Flight not found');
+    return flight.assignedEmployees || [];
+  }
+
   findAll(): Promise<Flight[]> {
     return this.flightRepo.find();
   }
@@ -58,12 +68,6 @@ export class FlightsService {
     const flight = await this.flightRepo.findOne({ where: { id }, relations: ['aircraft'] });
     if (!flight) throw new NotFoundException('Flight not found');
     return flight;
-  }
-
-  async getCrew(flightId: number) {
-    const flight = await this.flightRepo.findOne({ where: { id: flightId }, relations: ['assignedEmployees', 'assignedEmployees.user'] });
-    if (!flight) throw new NotFoundException('Flight not found');
-    return flight.assignedEmployees ?? [];
   }
 
   async update(id: number, dto: UpdateFlightDto): Promise<Flight> {

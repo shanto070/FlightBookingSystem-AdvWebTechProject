@@ -67,15 +67,15 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], BookingsController.prototype, "getCustomerBookings", null);
 __decorate([
-    (0, common_1.Get)('employee/bookings'),
-    (0, roles_decorator_1.Roles)(user_role_enum_1.UserRole.EMPLOYEE, user_role_enum_1.UserRole.ADMIN),
+    (0, common_1.Get)('admin/bookings'),
+    (0, roles_decorator_1.Roles)(user_role_enum_1.UserRole.ADMIN),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], BookingsController.prototype, "getAllBookings", null);
 __decorate([
-    (0, common_1.Patch)('employee/bookings/:id/status'),
-    (0, roles_decorator_1.Roles)(user_role_enum_1.UserRole.EMPLOYEE, user_role_enum_1.UserRole.ADMIN),
+    (0, common_1.Patch)('admin/bookings/:id/status'),
+    (0, roles_decorator_1.Roles)(user_role_enum_1.UserRole.ADMIN),
     __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -92,7 +92,7 @@ __decorate([
 ], BookingsController.prototype, "getBookingById", null);
 __decorate([
     (0, common_1.Post)('bookings/:id/payment'),
-    (0, roles_decorator_1.Roles)(user_role_enum_1.UserRole.CUSTOMER, user_role_enum_1.UserRole.EMPLOYEE, user_role_enum_1.UserRole.ADMIN),
+    (0, roles_decorator_1.Roles)(user_role_enum_1.UserRole.CUSTOMER, user_role_enum_1.UserRole.ADMIN),
     (0, swagger_1.ApiOperation)({ summary: 'Add/update payment for a booking' }),
     __param(0, (0, common_1.Req)()),
     __param(1, (0, common_1.Param)('id', common_1.ParseIntPipe)),

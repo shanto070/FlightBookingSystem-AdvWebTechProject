@@ -1,6 +1,7 @@
 import { Repository } from "typeorm";
 import { AircraftService } from '../aircraft/aircraft.service';
 import { Booking } from '../bookings/booking.entity';
+import { Employee } from '../employees/employee.entity';
 import { MailService } from '../mail/mail.service';
 import { NotificationsGateway } from '../notifications/notifications.gateway';
 import { Flight } from './flight.entity';
@@ -16,9 +17,9 @@ export declare class FlightsService {
     constructor(flightRepo: Repository<Flight>, bookingRepo: Repository<Booking>, aircraftService: AircraftService, mailService: MailService, notificationsGateway: NotificationsGateway);
     create(dto: CreateFlightDto): Promise<Flight>;
     search(query: SearchFlightDto): Promise<Flight[]>;
+    getCrew(flightId: number): Promise<Employee[] | null>;
     findAll(): Promise<Flight[]>;
     findOne(id: number): Promise<Flight>;
-    getCrew(flightId: number): Promise<import("../employees/employee.entity").Employee[]>;
     update(id: number, dto: UpdateFlightDto): Promise<Flight>;
     remove(id: number): Promise<{
         message: string;

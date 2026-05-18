@@ -11,7 +11,7 @@ export declare class EmployeesController {
     findOne(id: number): Promise<import("./employee.entity").Employee>;
     update(id: number, dto: UpdateEmployeeDto): Promise<import("./employee.entity").Employee>;
     assignCrew(flightId: number, employeeId: number): Promise<import("./employee.entity").Employee>;
-    getCrew(flightId: number): Promise<import("./employee.entity").Employee[]>;
+    getCrew(flightId: number): Promise<import("./employee.entity").Employee[] | null>;
     removeCrew(flightId: number, employeeId: number): Promise<{
         message: string;
     }>;
