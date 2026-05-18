@@ -23,7 +23,6 @@ CREATE DATABASE flight_booking_db;
 cd backend
 
 # Create .env file
-NEXT_PUBLIC_API_BASE_URL=http://localhost:3000
 DB_HOST=localhost
 DB_PORT=5432
 DB_USERNAME=postgres
@@ -36,7 +35,7 @@ MAIL_PORT=465
 MAIL_USER=your_username
 MAIL_PASS=your_password
 MAIL_FROM=noreply@flightbooking.com
-PORT=3000
+PORT=5000
 
 # Install & Run
 npm install
@@ -44,7 +43,7 @@ npm run seed
 npm run start:dev
 ```
 
-✅ Backend runs on: **http://localhost:3000**
+✅ Backend runs on: **http://localhost:5000**
 
 ### 3. Frontend Setup (New Terminal)
 
@@ -52,14 +51,14 @@ npm run start:dev
 cd frontend
 
 # Create .env.local file
-NEXT_PUBLIC_API_BASE_URL=http://localhost:3000
+NEXT_PUBLIC_API_BASE_URL=http://localhost:5000
 
 # Install & Run
 npm install --legacy-peer-deps
 npm run dev
 ```
 
-✅ Frontend runs on: **http://localhost:3001**
+✅ Frontend runs on: **http://localhost:3000**
 
 ## Login Credentials
 
@@ -80,8 +79,8 @@ Password: Employee@123
 
 ## URLs
 
-- **App:** http://localhost:3001
-- **API Docs:** http://localhost:3000/api/docs
+- **App:** http://localhost:3000
+- **API Docs:** http://localhost:5000/api/docs
 
 ## Common Commands
 
