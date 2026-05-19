@@ -43,7 +43,7 @@ npm run seed
 npm run start:dev
 ```
 
-✅ Backend runs on: **http://localhost:5000**
+✅ Backend runs on: **http://localhost:5000/api/docs**
 
 ### 3. Frontend Setup (New Terminal)
 
